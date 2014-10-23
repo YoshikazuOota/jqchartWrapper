@@ -4,9 +4,9 @@ jqChartWrapper v0.9
 A wrapper of the jqChart in Titanium.
 This wrapper simplify draw graph by the jqChart for iOS/Android application.
 
-- ** The jqChart is a commercial software. ** [jqChart](http://www.jqchart.com/)   
-- ** Courtesy of jqChart inc., "30 Days Free Trial jqChart" is bundled. **   
-- ** The following file must-read : Resources/jqChartWrapper/jqChartJQueryPlugin_3_8_7_0/INSTALL.TXT **   
+- The jqChart is a commercial software.   [jqChart](http://www.jqchart.com/)   
+- Courtesy of jqChart inc., "30 Days Free Trial jqChart" is bundled.     
+- The following file must-read : Resources/jqChartWrapper/jqChartJQueryPlugin_3_8_7_0/INSTALL.TXT  
 
 
 ## Description
