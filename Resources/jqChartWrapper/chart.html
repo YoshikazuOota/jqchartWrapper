@@ -1,0 +1,78 @@
+<html>
+<head>
+    VIEWPORT_DEFINE
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="jqChartWrapper/jqChartJQueryPlugin_3_8_7_0/css/jquery.jqChart.css"/>
+    <link rel="stylesheet" type="text/css" href="jqChartWrapper/jqChartJQueryPlugin_3_8_7_0/css/jquery.jqRangeSlider.css"/>
+    <link rel="stylesheet" type="text/css" href="jqChartWrapper/jqChartJQueryPlugin_3_8_7_0/themes/smoothness/jquery-ui-1.10.4.css" />
+
+    <script src="jqChartWrapper/jqChartJQueryPlugin_3_8_7_0/js/jquery-1.11.1.min.lib" type="text/javascript"></script>
+    <script src="jqChartWrapper/jqChartJQueryPlugin_3_8_7_0/js/jquery.jqChart.min.lib" type="text/javascript"></script>
+    <script src="jqChartWrapper/jqChartJQueryPlugin_3_8_7_0/js/jquery.jqRangeSlider.min.lib" type="text/javascript"></script>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            margin-left: 0px;
+            padding: 0;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+
+        function drawChart(params) {
+
+            // 表示データの日付(text)をdate型に変更
+            for (var m = 0; m < params.series.length ; m ++) {
+                for (var k = 0; k < params.series[m].data.length ; k ++) {
+                    for(var p = 0 ; p < params.series[m].data[k].length ; p ++ ){
+
+                        var val = params.series[m].data[k][p];
+                        if ((val == parseInt(val)) || (val == parseFloat(val))) {
+                            // 数値
+                        } else {
+                            // 文字列
+                            if(val.match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$/)){
+                                //alert(params.series[m].data[k][p]);
+                                params.series[m].data[k][p] = new Date(params.series[m].data[k][p]);
+                            }
+                        }
+                    }
+                }
+            }
+            $('#chartDiv').jqChart(params);
+        }
+
+        function updateChart(params) {
+            // 表示データの日付(text)をdate型に変更
+            for (var m = 0; m < params.series.length ; m ++) {
+                for (var k = 0; k < params.series[m].data.length ; k ++) {
+                    for(var p = 0 ; p < params.series[m].data[k].length ; p ++ ){
+
+                        var val = params.series[m].data[k][p];
+                        if ((val == parseInt(val)) || (val == parseFloat(val))) {
+                            // 数値
+                        } else {
+                            // 文字列
+                            if(val.match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$/)){
+                                //alert(params.series[m].data[k][p]);
+                                params.series[m].data[k][p] = new Date(params.series[m].data[k][p]);
+                            }
+                        }
+                    }
+                }
+            }
+            $('#chartDiv').jqChart('update');
+        }
+
+
+
+        jQuery.event.add(window, "load", function () {
+            EVENT_DEFINE /* replace */
+        });
+
+    </script>
+</head>
+<body>
+<div class="jqChart" id="chartDiv" style="CANVAS_SIZE"></div>
+</body>
+</html>

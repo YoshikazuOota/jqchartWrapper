@@ -1,0 +1,14 @@
+tmp
+.project
+build
+.DS_store
+.idea/
+Resources/Resources.iml
+build.log
+.settings/
+
+.work
+
+*.iml
+
+my/
